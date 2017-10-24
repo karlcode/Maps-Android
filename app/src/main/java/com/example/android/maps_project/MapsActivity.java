@@ -1,5 +1,7 @@
 package com.example.android.maps_project;
 
+import android.app.SearchManager;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
