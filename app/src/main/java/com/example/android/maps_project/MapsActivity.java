@@ -1,18 +1,17 @@
 package com.example.android.maps_project;
 
-import android.app.SearchManager;
-import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
-import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
@@ -20,7 +19,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private final LatLng mDefaultLocation = new LatLng(-33.8523341, 151.2106085);
-    protected GeoDataClient mGeoDataClient;
+
 
 
     @Override
@@ -34,13 +33,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
         Log.i("onCreate", "Debugging message for onCreate");
 
-        // Construct a GeoDataClient.
-        mGeoDataClient = Places.getGeoDataClient(this, null);
-
-        // Construct a PlaceDetectionClient.
-        mPlaceDetectionClient = Places.getPlaceDetectionClient(this, null);
-
-        // TODO: Start using the Places API.
 
     }
     @Override
@@ -66,8 +58,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera
         //LatLng sydney = new LatLng(-34, 151);
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-        mMap.addMarker(new MarkerOptions().position(mDefaultLocation).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(mDefaultLocation).title("Marker in Sydney").snippet("Population: ~5 million"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(mDefaultLocation));
         mMap.setMinZoomPreference(13.0f);
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                if (marker.getTitle().equals("Marker in Sydney")) {
+                    Toast.makeText(MapsActivity.this, "Clicked " + marker.getTitle(), Toast.LENGTH_SHORT).show();
+                }
+                return false;
+            }
+        });
     }
 }
