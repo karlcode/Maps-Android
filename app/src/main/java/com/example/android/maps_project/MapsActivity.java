@@ -67,7 +67,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (marker.getTitle().equals("Marker in Sydney")) {
                     Toast.makeText(MapsActivity.this, "Clicked " + marker.getTitle(), Toast.LENGTH_SHORT).show();
                 }
+                marker.setDraggable(true);
                 return false;
+            }
+        });
+        mMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
+            @Override
+            public void onMarkerDragStart(Marker marker) {
+
+            }
+
+            @Override
+            public void onMarkerDrag(Marker marker) {
+
+                    Toast.makeText(MapsActivity.this, "Clicked " + marker.getPosition(), Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onMarkerDragEnd(Marker marker) {
+
             }
         });
     }
