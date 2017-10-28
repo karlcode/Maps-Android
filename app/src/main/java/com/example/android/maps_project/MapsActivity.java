@@ -79,14 +79,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             @Override
             public void onMarkerDrag(Marker marker) {
+                //mMap.animateCamera();
 
-                    Toast.makeText(MapsActivity.this, "Clicked " + marker.getPosition(), Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onMarkerDragEnd(Marker marker) {
-
+                Toast.makeText(MapsActivity.this, "Clicked " + marker.getPosition(), Toast.LENGTH_SHORT).show();
             }
         });
     }
