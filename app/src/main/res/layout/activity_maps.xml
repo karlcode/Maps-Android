@@ -14,17 +14,22 @@
         android:layout_height="match_parent"
         tools:context="com.example.android.maps_project.MapsActivity" />
 
-    <SearchView
-        android:layout_width="match_parent"
-        android:layout_height="63dp" />
-
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:elevation="0dp"
+        android:onClick="sendMessage"
         android:text="Find" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="348dp"
+        android:layout_height="62dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
 
 
 </FrameLayout>
