@@ -50,6 +50,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
+    public void loginButton(View view){
+        Intent second = new Intent(this, LoginActivity.class);
+        startActivity(second);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
