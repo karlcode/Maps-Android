@@ -52,6 +52,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
     public void loginButton(View view){
         Intent second = new Intent(this, LoginActivity.class);
+        Log.d("yolo", "Hi" + view);
         startActivity(second);
     }
 
