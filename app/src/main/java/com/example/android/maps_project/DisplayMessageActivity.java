@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -22,6 +23,12 @@ public class DisplayMessageActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
 
         m_ListView.setAdapter(adapter);
+        m_ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(DisplayMessageActivity.this, "Toast " + l, Toast.LENGTH_LONG).show();
+            }
+        });
         Button gitClick = (Button) findViewById(R.id.gitButton);
         gitClick.setOnClickListener(new View.OnClickListener() {
             @Override
