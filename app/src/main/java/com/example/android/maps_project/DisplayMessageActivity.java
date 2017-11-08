@@ -19,10 +19,12 @@ public class DisplayMessageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_message);
 
         ListView m_ListView = (ListView)findViewById(R.id.id_list_view);
-        String[] items = new String[] {"Item 1", "Item 2", "Item 3"};
+        String[] items = new String[] {"Person 1", "Person 2", "Person 3"};
+        String[] subitems = new String[] {" 1", " 2", " 3"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
-
+        ArrayAdapter<String> subadapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_2, subitems);
         m_ListView.setAdapter(adapter);
+        m_ListView.setAdapter(subadapter);
         m_ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
