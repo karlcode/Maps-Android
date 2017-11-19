@@ -1,7 +1,9 @@
 package com.example.android.maps_project;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,6 +37,17 @@ public class DisplayMessageActivity extends AppCompatActivity {
         gitClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AlertDialog alertDialog = new AlertDialog.Builder(<YourActivityName>this).create(); //Read Update
+                alertDialog.setTitle("hi");
+                alertDialog.setMessage("this is my app");
+
+                alertDialog.setButton("Continue..", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // here you can add functions
+                    }
+                });
+
+                alertDialog.show();  //<-- See This!
                 Toast.makeText(DisplayMessageActivity.this, "Hi there", Toast.LENGTH_SHORT).show();
             }
         });
